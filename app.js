@@ -1,75 +1,63 @@
-let gold=0,energy=5500,max=5500;
-let boost={tap:false,auto:false,energy:0};
-const g=document.getElementById('gold');
-const ef=document.getElementById('ef');
-const orb=document.getElementById('orb');
-
-function haptic(){
- if(window.Telegram?.WebApp?.HapticFeedback){
-  Telegram.WebApp.HapticFeedback.impactOccurred('light');
- }
+// Telegram init
+if(window.Telegram?.WebApp){
+  Telegram.WebApp.ready();
+  Telegram.WebApp.expand();
 }
 
-function render(){
- g.textContent=gold;
- ef.style.width=(energy/max*100)+'%';
-}
+// Loader
+let lp = 0;
+const loader = document.getElementById('loader');
+const app = document.getElementById('app');
 
-orb.onclick=()=>{
- if(energy<=0)return;
- energy--;
- gold+=boost.tap?2:1;
- orb.classList.add('tap');
- setTimeout(()=>orb.classList.remove('tap'),120);
- haptic();
- render();
+const loadTimer = setInterval(()=>{
+  lp += 4;
+  document.getElementById('lp').textContent = lp;
+  if(lp >= 100){
+    clearInterval(loadTimer);
+    loader.classList.add('hide');
+    setTimeout(()=>{
+      loader.style.display = 'none';
+      app.classList.remove('hidden');
+    },600);
+  }
+},90);
+
+// Game state
+let gold = 0;
+let energy = 5500;
+const maxEnergy = 5500;
+
+const goldEl = document.getElementById('gold');
+const enEl = document.getElementById('en');
+const ef = document.getElementById('ef');
+document.getElementById('em').textContent = maxEnergy;
+
+// Tap
+document.getElementById('orb').onclick = ()=>{
+  if(energy <= 0) return;
+  energy--;
+  gold++;
+  goldEl.textContent = gold;
+  enEl.textContent = energy;
+  ef.style.width = (energy/maxEnergy*100)+'%';
 };
 
+// Energy regen
 setInterval(()=>{
- energy=Math.min(max,energy+1);
- render();
-},1000);
+  if(energy < maxEnergy){
+    energy++;
+    enEl.textContent = energy;
+    ef.style.width = (energy/maxEnergy*100)+'%';
+  }
+},3000);
 
-setInterval(()=>{
- if(boost.auto){gold++;render();}
-},2000);
-
-function buyEnergy(){
- if(gold<500)return;
- gold-=500;
- boost.energy++;
- max=5500+boost.energy*1000;
- energy=max;
- haptic();
- render();
-}
-function buyTap(){
- if(boost.tap||gold<2000)return;
- gold-=2000;
- boost.tap=true;
- haptic();
- render();
-}
-function buyAuto(){
- if(boost.auto||gold<3000)return;
- gold-=3000;
- boost.auto=true;
- haptic();
- render();
-}
-
-function go(id){
- document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
- document.getElementById(id).classList.add('active');
-}
-
-let p=0;
-const t=setInterval(()=>{
- p+=5;
- document.getElementById('p').textContent=p;
- if(p>=100){
-  clearInterval(t);
-  document.getElementById('loader').style.display='none';
-  document.getElementById('app').classList.remove('hidden');
- }
-},80);
+// Tabs
+document.querySelectorAll('.menu button').forEach(btn=>{
+  btn.onclick = ()=>{
+    const id = btn.dataset.tab;
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  };
+});
