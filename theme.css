@@ -1,184 +1,135 @@
-/* =========================
-   PREMIUM STANDOFF GOLD THEME
-   SAFE FOR TELEGRAM MINI APP
-========================= */
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at top, #1a1204 0%, #090603 60%, #000 100%);
+  color: #f5d27a;
+  font-family: Inter, system-ui, sans-serif;
+}
 
 #app {
-  background: radial-gradient(
-    ellipse at top,
-    #1a1204 0%,
-    #090603 60%,
-    #000000 100%
-  );
-  color: #f5d27a;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   min-height: 100vh;
+  padding-bottom: 90px;
 }
 
-/* -------------------------
-   HEADER
-------------------------- */
+.screen { display: none; }
+.screen.active { display: block; }
+
 .header {
-  padding: 12px 16px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #e6c15a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
 }
 
-/* -------------------------
-   GOLD COUNTER
-------------------------- */
-.gold-value {
-  font-size: 26px;
+.title {
   font-weight: 800;
-  color: #ffd777;
+  letter-spacing: .1em;
 }
 
-/* -------------------------
-   GOLD CIRCLE (TAP)
-------------------------- */
+.lang-btn {
+  background: rgba(255,200,90,.15);
+  border: 1px solid rgba(255,215,120,.6);
+  color: #ffd777;
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-weight: 700;
+}
+
 .gold-circle {
   width: 220px;
   height: 220px;
+  margin: 30px auto 12px;
   border-radius: 50%;
-  margin: 40px auto 24px;
-  background: radial-gradient(
-    circle at top left,
-    #fff1b8 0%,
-    #ffd25c 30%,
-    #ffb300 65%,
-    #cc8800 100%
-  );
+  background: radial-gradient(circle at top left,#fff1b8,#ffb300);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 26px;
   font-weight: 900;
   color: #3a2500;
-  box-shadow:
-    0 0 25px rgba(255, 185, 0, 0.35),
-    0 0 60px rgba(255, 170, 0, 0.25);
-  transition: transform 0.08s ease, box-shadow 0.08s ease;
 }
 
-.gold-circle:active {
-  transform: scale(0.96);
-  box-shadow:
-    0 0 40px rgba(255, 200, 50, 0.55),
-    0 0 90px rgba(255, 180, 20, 0.35);
+.gold-counter {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
 }
 
-/* -------------------------
-   ENERGY BAR
-------------------------- */
 .energy-wrapper {
   width: 80%;
-  margin: 0 auto 28px;
+  margin: 0 auto;
 }
 
 .energy-bar {
   height: 8px;
+  background: rgba(255,215,120,.2);
   border-radius: 6px;
-  background: rgba(255, 215, 120, 0.15);
   overflow: hidden;
 }
 
 .energy-fill {
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    #ffcc55,
-    #ffb300
-  );
-  box-shadow: 0 0 12px rgba(255, 180, 40, 0.8);
+  width: 100%;
+  background: linear-gradient(90deg,#ffcc55,#ffb300);
 }
 
-/* -------------------------
-   SECTIONS (BOOSTS / AIRDROP)
-------------------------- */
+.energy-text {
+  margin-top: 6px;
+  text-align: left;
+}
+
+.earn-info {
+  text-align: center;
+  margin-top: 14px;
+  opacity: .85;
+}
+
 .section {
-  padding: 24px 16px;
+  padding: 20px 16px;
 }
 
 .section-title {
   font-size: 18px;
   font-weight: 800;
   margin-bottom: 16px;
-  color: #f7d98a;
-  letter-spacing: 0.06em;
 }
 
-/* -------------------------
-   BOOST CARDS
-------------------------- */
 .boost-card {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 215, 120, 0.12),
-    rgba(255, 170, 0, 0.06)
-  );
-  border: 1px solid rgba(255, 200, 90, 0.25);
-  border-radius: 14px;
-  padding: 14px 16px;
-  margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  backdrop-filter: blur(6px);
-}
-
-.boost-card strong {
-  color: #ffe08a;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  background: rgba(255,200,90,.12);
+  border: 1px solid rgba(255,215,120,.35);
 }
 
 .boost-price {
-  color: #ffcc55;
   font-weight: 700;
 }
 
-/* -------------------------
-   BOTTOM MENU
-------------------------- */
 .bottom-menu {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: env(safe-area-inset-bottom);
-  padding: 12px 12px calc(12px + env(safe-area-inset-bottom));
+  bottom: 0;
+  padding: 12px;
   display: flex;
   gap: 10px;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,0),
-    rgba(0,0,0,0.85)
-  );
-  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,.85);
 }
 
 .bottom-menu button {
   flex: 1;
   height: 46px;
   border-radius: 14px;
-  border: 1px solid rgba(255, 200, 90, 0.35);
-  background: rgba(255, 180, 40, 0.06);
+  border: 1px solid rgba(255,215,120,.35);
+  background: rgba(255,180,40,.08);
   color: #f5d27a;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  transition: all 0.15s ease;
 }
 
 .bottom-menu button.active {
-  background: linear-gradient(
-    180deg,
-    #ffcc55,
-    #ffb300
-  );
+  background: linear-gradient(#ffcc55,#ffb300);
   color: #3a2500;
-  box-shadow:
-    0 0 18px rgba(255, 185, 0, 0.55);
-}
-
-.bottom-menu button:active {
-  transform: scale(0.96);
 }
