@@ -12,14 +12,13 @@
 <body>
 <div id="app">
 
-  <!-- LOADER -->
-  <div id="loader" class="loader active">
+  <!-- LOADING SCENE -->
+  <div id="loader" class="loader">
     <div class="loader-content">
-      <div class="loader-logo">STANDOFF GOLD TAP</div>
-      <div class="loader-bar">
-        <div id="loaderFill"></div>
+      <div class="loader-title">Loading</div>
+      <div class="loader-percent">
+        <span id="loaderPercent">0</span>%
       </div>
-      <div id="loaderPercent">0%</div>
     </div>
   </div>
 
@@ -41,7 +40,9 @@
       <div class="energy-bar">
         <div id="energyFill" class="energy-fill"></div>
       </div>
-      <div class="energy-text">⚡ <span id="energyValue">6500</span></div>
+      <div class="energy-text">
+        ⚡ <span id="energyValue">6500</span>
+      </div>
     </div>
 
     <div class="earn-info">
@@ -54,7 +55,6 @@
   <section id="boosts" class="screen">
     <div class="section">
       <div class="section-title" data-i18n="boosts">BOOSTS</div>
-
       <div class="boost-card">⚡ Energy +1000 — 500 GOLD</div>
       <div class="boost-card">⚡ Tap x2 — 2000 GOLD</div>
       <div class="boost-card">🤖 Auto Tap — 3000 GOLD</div>
