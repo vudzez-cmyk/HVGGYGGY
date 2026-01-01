@@ -30,40 +30,45 @@ document.getElementById("langToggle").onclick = ()=>{
   applyLang();
 };
 
-// ===== LOADER =====
-let load=0;
-const loader=document.getElementById("loader");
-const fill=document.getElementById("loaderFill");
-const percent=document.getElementById("loaderPercent");
+// ===== LOADING =====
+let appReady = false;
+const loader = document.getElementById("loader");
+const loaderPercent = document.getElementById("loaderPercent");
 
-const loaderTimer=setInterval(()=>{
-  load+=Math.floor(Math.random()*8)+3;
-  if(load>=100){
-    load=100;
+let load = 0;
+const loaderTimer = setInterval(()=>{
+  load += Math.floor(Math.random()*6)+4;
+  if(load >= 100){
+    load = 100;
     clearInterval(loaderTimer);
-    setTimeout(()=>loader.style.display="none",400);
+    setTimeout(()=>{
+      loader.style.opacity="0";
+      setTimeout(()=>{
+        loader.style.display="none";
+        appReady = true;
+      },400);
+    },300);
   }
-  fill.style.width=load+"%";
-  percent.textContent=load+"%";
-},80);
+  loaderPercent.textContent = load;
+},90);
 
 // ===== GAME =====
-let gold=0;
-let energy=6500;
+let gold = 0;
+let energy = 6500;
 
-const goldCount=document.getElementById("goldCount");
-const energyValue=document.getElementById("energyValue");
-const energyFill=document.getElementById("energyFill");
-const circle=document.getElementById("goldCircle");
+const goldCount = document.getElementById("goldCount");
+const energyValue = document.getElementById("energyValue");
+const energyFill = document.getElementById("energyFill");
+const circle = document.getElementById("goldCircle");
 
 function update(){
-  goldCount.textContent=gold;
-  energyValue.textContent=energy;
-  energyFill.style.width=(energy/6500*100)+"%";
+  goldCount.textContent = gold;
+  energyValue.textContent = energy;
+  energyFill.style.width = (energy/6500*100)+"%";
 }
 
-circle.onclick=()=>{
-  if(energy<=0) return;
+circle.onclick = ()=>{
+  if(!appReady || energy<=0) return;
   gold++;
   energy--;
   update();
@@ -71,9 +76,9 @@ circle.onclick=()=>{
 
 // dynamic light
 function light(e){
-  const r=circle.getBoundingClientRect();
-  const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
-  const y=(e.touches?e.touches[0].clientY:e.clientY)-r.top;
+  const r = circle.getBoundingClientRect();
+  const x = (e.touches?e.touches[0].clientX:e.clientX)-r.left;
+  const y = (e.touches?e.touches[0].clientY:e.clientY)-r.top;
   circle.style.setProperty("--lx",x+"px");
   circle.style.setProperty("--ly",y+"px");
 }
@@ -84,7 +89,7 @@ circle.addEventListener("mousemove",e=>{ if(e.buttons) light(e); });
 
 // MENU
 document.querySelectorAll(".bottom-menu button").forEach(btn=>{
-  btn.onclick=()=>{
+  btn.onclick = ()=>{
     document.querySelectorAll(".bottom-menu button").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
     document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
