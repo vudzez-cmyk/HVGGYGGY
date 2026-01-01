@@ -1,4 +1,4 @@
-/* LOADER */
+/* LOADING */
 .loader {
   position:fixed;
   inset:0;
@@ -6,33 +6,32 @@
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:999;
+  z-index:9999;
 }
 
-.loader-content { text-align:center; }
-.loader-logo {
+.loader-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+
+.loader-title {
+  font-size:26px;
   font-weight:800;
-  letter-spacing:.15em;
-  margin-bottom:20px;
+  letter-spacing:.12em;
+  color:#ffd777;
 }
 
-.loader-bar {
-  width:220px;
-  height:6px;
-  background:rgba(255,215,120,.2);
-  border-radius:6px;
-  overflow:hidden;
+.loader-percent {
+  font-size:18px;
+  font-weight:700;
+  color:#ffb300;
 }
 
-#loaderFill {
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,#ffcc55,#ffb300);
-}
-
-/* GOLD PULSE */
+/* GOLD GLOW + LIQUID */
 .gold-circle {
-  animation: pulse 2.5s infinite;
+  animation:pulse 2.6s infinite;
 }
 
 @keyframes pulse {
@@ -41,7 +40,6 @@
   100% { box-shadow:0 0 25px rgba(255,185,0,.35); }
 }
 
-/* LIQUID LAYER */
 .gold-circle::before {
   content:"";
   position:absolute;
@@ -56,4 +54,6 @@
   opacity:0;
 }
 
-.gold-circle:active::before { opacity:1; }
+.gold-circle:active::before {
+  opacity:1;
+}
