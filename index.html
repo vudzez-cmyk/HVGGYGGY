@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>STANDOFF GOLD TAP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loader" class="loader">
+  <div class="loading-text">Loading</div>
+</div>
+
+<div id="app" class="app hidden">
+
+<header class="top">
+  <div class="title">STANDOFF GOLD TAP</div>
+  <div class="balance"><span id="gold">0</span> GOLD</div>
+</header>
+
+<main class="center">
+<section id="screen-earn" class="screen active">
+  <div class="orb-wrap">
+    <div class="glow"></div>
+    <div class="orb" id="orb">GOLD</div>
+  </div>
+  <div class="energy">
+    <div class="energy-bar"><div id="energyFill"></div></div>
+    <small id="energyText"></small>
+  </div>
+</section>
+
+<section id="screen-boosts" class="screen">
+<h2>BOOSTS</h2>
+
+<div class="boost" id="b-energy">
+<b>🔋 Energy +1000</b>
+<button onclick="buyEnergy()">500 GOLD</button>
+</div>
+
+<div class="boost" id="b-tap">
+<b>⚡ Tap x2</b>
+<button onclick="buyTap()">2000 GOLD</button>
+</div>
+
+<div class="boost" id="b-auto">
+<b>🤖 Auto Tap</b>
+<button onclick="buyAuto()">3000 GOLD</button>
+</div>
+</section>
+</main>
+
+<nav class="menu">
+<button data-screen="earn" class="active">Earn</button>
+<button data-screen="boosts">Boosts</button>
+</nav>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
