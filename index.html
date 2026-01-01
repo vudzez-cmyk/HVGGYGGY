@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>STANDOFF GOLD TAP</title>
 
   <link rel="stylesheet" href="theme.css">
@@ -25,74 +24,58 @@
   </div>
 
   <!-- EARN -->
-  <div id="earn" class="screen active">
-    <div class="header">
+  <section id="earn" class="screen active">
+    <header class="header">
       <div class="title">STANDOFF GOLD TAP</div>
       <button id="langToggle" class="lang-btn">EN</button>
-    </div>
+    </header>
 
     <div id="goldCircle" class="gold-circle">GOLD</div>
 
     <div class="gold-counter">
-      <span id="goldCount">0</span> <span data-i18n="gold">GOLD</span>
+      <span id="goldCount">0</span>
+      <span data-i18n="gold">GOLD</span>
     </div>
 
     <div class="energy-wrapper">
       <div class="energy-bar">
         <div id="energyFill" class="energy-fill"></div>
       </div>
-      <div class="energy-text">
-        ⚡ <span id="energyValue">6500</span>
-      </div>
+      <div class="energy-text">⚡ <span id="energyValue">6500</span></div>
     </div>
 
     <div class="earn-info">
       <div data-i18n="tapRate">+1 GOLD / 3 sec</div>
       <div data-i18n="bonus">Welcome bonus applied</div>
     </div>
-  </div>
+  </section>
 
   <!-- BOOSTS -->
-  <div id="boosts" class="screen">
+  <section id="boosts" class="screen">
     <div class="section">
       <div class="section-title" data-i18n="boosts">BOOSTS</div>
 
-      <div class="boost-card" data-boost="energy">
-        <span>⚡ Energy +1000</span>
-        <span class="boost-price">500 GOLD</span>
-      </div>
-
-      <div class="boost-card" data-boost="x2">
-        <span>⚡ Tap x2 (Forever)</span>
-        <span class="boost-price">2000 GOLD</span>
-      </div>
-
-      <div class="boost-card" data-boost="auto">
-        <span>🤖 Auto Tap</span>
-        <span class="boost-price">3000 GOLD</span>
-      </div>
+      <div class="boost-card">⚡ Energy +1000 — 500 GOLD</div>
+      <div class="boost-card">⚡ Tap x2 — 2000 GOLD</div>
+      <div class="boost-card">🤖 Auto Tap — 3000 GOLD</div>
     </div>
-  </div>
+  </section>
 
   <!-- AIRDROP -->
-  <div id="airdrop" class="screen">
+  <section id="airdrop" class="screen">
     <div class="section">
       <div class="section-title">AIR DROP</div>
-      <p>📅 01.02.2026</p>
+      <p>01.02.2026</p>
       <p>10 000 GOLD = 1 000 GAME CURRENCY</p>
-      <p style="opacity:.7">
-        All active players will receive rewards.
-        Keep farming GOLD to maximize your drop.
-      </p>
     </div>
-  </div>
+  </section>
 
   <!-- MENU -->
-  <div class="bottom-menu">
+  <nav class="bottom-menu">
     <button data-tab="earn" class="active">Earn</button>
     <button data-tab="boosts">Boosts</button>
     <button data-tab="airdrop">Air Drop</button>
-  </div>
+  </nav>
 
 </div>
 
