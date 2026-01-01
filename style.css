@@ -1,74 +1,131 @@
-*{box-sizing:border-box}
-:root{
- --safe-top:env(safe-area-inset-top);
- --safe-bottom:env(safe-area-inset-bottom);
-}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
 body{
- margin:0;background:#000;color:#fff;
- font-family:-apple-system,BlinkMacSystemFont,Arial;
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family:Inter,Arial,sans-serif;
 }
+
+/* LOADER */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#000;
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:.6s;
+}
+#loader.hide{opacity:0;pointer-events:none}
+#loader .logo{font-size:22px;margin-bottom:12px}
+#loader .percent{color:#ffb300;font-size:18px}
+
+/* APP */
 .hidden{display:none}
-.loader{
- position:fixed;inset:0;
- display:flex;flex-direction:column;
- align-items:center;justify-content:center;
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  padding:14px 18px;
+  font-size:14px;
+  opacity:.85;
 }
-.logo{font-size:22px;font-weight:700;margin-bottom:10px}
-.app{
- min-height:100vh;
- display:flex;flex-direction:column;
- padding-bottom:var(--safe-bottom);
+
+/* SCREENS */
+.screen{
+  display:none;
+  flex-direction:column;
+  align-items:center;
 }
-.top{
- padding:calc(12px + var(--safe-top)) 14px 12px;
- display:flex;justify-content:space-between;
-}
-main{flex:1;display:flex;align-items:center;justify-content:center}
-.screen{display:none;flex-direction:column;align-items:center;text-align:center}
 .screen.active{display:flex}
-.orb-wrap{position:relative}
-.orb{
- width:220px;height:220px;border-radius:50%;
- background:radial-gradient(circle,#ffe08a,#ff9f00);
- display:flex;align-items:center;justify-content:center;
- font-size:32px;font-weight:800;
- transition:.1s;
- box-shadow:0 0 40px rgba(255,180,0,.4);
-}
-.orb.tap{
- transform:scale(.95);
- box-shadow:0 0 70px rgba(255,200,0,.9);
+
+/* ORB */
+.orb-wrap{
+  position:relative;
+  margin:40px 0 10px;
 }
 .glow{
- position:absolute;inset:-50px;
- background:radial-gradient(circle,rgba(255,180,0,.4),transparent 70%);
- filter:blur(40px);
- animation:pulse 2s infinite;
+  position:absolute;
+  inset:-60px;
+  background:radial-gradient(circle,rgba(255,180,0,.45),transparent 70%);
+  filter:blur(40px);
+  animation:pulse 2s infinite;
+  pointer-events:none;
 }
-@keyframes pulse{0%{opacity:.4}50%{opacity:.9}100%{opacity:.4}}
-.energy{width:200px;margin-top:12px}
-.energy-bar{height:6px;background:#222;border-radius:999px;overflow:hidden}
-#ef{height:100%;background:#ffb300;width:100%}
+@keyframes pulse{
+  0%,100%{opacity:.6}
+  50%{opacity:1}
+}
+.orb{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  background:#ffb300;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  font-weight:600;
+  color:#111;
+  transition:.1s;
+}
+.orb:active{transform:scale(.96)}
+
+/* ENERGY */
+.energy-bar{
+  width:220px;
+  height:6px;
+  background:#222;
+  border-radius:6px;
+  overflow:hidden;
+  margin-top:16px;
+}
+.energy-fill{
+  height:100%;
+  background:#ffb300;
+  width:100%;
+  transition:.2s;
+}
+.energy-info{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0 30px;
+  margin-top:8px;
+  font-size:13px;
+  color:#aaa;
+}
+.energy-info span{color:#ffb300}
+
+/* MENU */
 .menu{
- display:flex;gap:8px;
- padding:10px 12px calc(12px + var(--safe-bottom));
+  position:fixed;
+  bottom:14px;
+  left:14px;
+  right:14px;
+  display:flex;
+  gap:12px;
 }
 .menu button{
- flex:1;background:#111;border:1px solid #333;
- color:#aaa;padding:10px;border-radius:12px;
- transition:.1s;
+  flex:1;
+  height:56px;
+  border-radius:18px;
+  background:#0e0e0e;
+  border:1.5px solid rgba(255,180,0,.25);
+  color:#aaa;
+  font-size:15px;
+  transition:.15s;
+}
+.menu button.active{
+  color:#ffb300;
+  border-color:#ffb300;
+  box-shadow:0 0 0 1px rgba(255,180,0,.4),
+             0 0 18px rgba(255,180,0,.45);
 }
 .menu button:active{
- transform:scale(.95);
- box-shadow:0 0 12px rgba(255,180,0,.6);
-}
-.boost{
- margin:6px 0;padding:12px;
- background:#111;border:1px solid #333;
- color:#fff;border-radius:12px;
- transition:.1s;
-}
-.boost:active{
- transform:scale(.95);
- box-shadow:0 0 16px rgba(255,180,0,.7);
+  transform:scale(.96);
+  box-shadow:0 0 22px rgba(255,180,0,.6);
 }
