@@ -1,0 +1,42 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top,#1b1206,#000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: opacity .4s ease;
+}
+
+.loader-content { text-align: center; }
+
+.loader-logo {
+  font-weight: 800;
+  letter-spacing: .15em;
+  margin-bottom: 20px;
+}
+
+.loader-bar {
+  width: 220px;
+  height: 6px;
+  background: rgba(255,215,120,.2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#loaderFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#ffcc55,#ffb300);
+}
+
+.gold-circle {
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 25px rgba(255,185,0,.35); }
+  50% { box-shadow: 0 0 60px rgba(255,200,60,.7); }
+  100% { box-shadow: 0 0 25px rgba(255,185,0,.35); }
+}
