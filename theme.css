@@ -1,0 +1,136 @@
+/* ================================
+   PREMIUM DARK GOLD × STANDOFF 2
+   ================================ */
+
+/* Общий фон */
+body{
+  background:
+    radial-gradient(circle at top, #14100a 0%, #070503 55%, #000 100%);
+}
+
+/* Header */
+.header{
+  background:linear-gradient(180deg,#0d0a06,#000);
+  box-shadow:0 6px 18px rgba(0,0,0,.6);
+}
+
+/* ===== ORB ===== */
+.orb{
+  background:
+    radial-gradient(circle at 30% 30%,
+      #fff2b8 0%,
+      #ffcc66 35%,
+      #ffb300 60%,
+      #c97a00 100%);
+  box-shadow:
+    0 0 45px rgba(255,180,0,.65),
+    inset 0 0 22px rgba(255,255,255,.25),
+    inset 0 -8px 18px rgba(0,0,0,.35);
+}
+
+/* Усиленный glow */
+.glow{
+  background:
+    radial-gradient(circle,
+      rgba(255,190,90,.55),
+      rgba(255,150,0,.15) 45%,
+      transparent 70%);
+  filter:blur(60px);
+  animation:pulse 1.5s infinite;
+}
+
+/* ===== ENERGY ===== */
+.energy-bar{
+  background:#1a140b;
+  box-shadow:inset 0 0 6px rgba(0,0,0,.8);
+}
+.energy-fill{
+  background:linear-gradient(90deg,#ffcf6a,#ff9f00);
+  box-shadow:0 0 10px rgba(255,180,0,.6);
+}
+
+/* Energy info */
+.energy-info{
+  color:#c7b38a;
+}
+.energy-info span{
+  color:#ffcc66;
+}
+
+/* ===== MENU ===== */
+.menu{
+  backdrop-filter:blur(10px);
+}
+
+.menu button{
+  background:
+    linear-gradient(180deg,#120e08,#0a0704);
+  border:1.5px solid rgba(255,200,120,.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 8px 18px rgba(0,0,0,.8);
+}
+
+.menu button.active{
+  color:#ffd36a;
+  border-color:#ffb300;
+  background:
+    linear-gradient(180deg,#2b1a05,#120b03);
+  box-shadow:
+    0 0 0 1px rgba(255,180,0,.6),
+    0 0 24px rgba(255,170,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+/* ===== BOOSTS ===== */
+.boost{
+  background:
+    linear-gradient(180deg,#120e08,#090603);
+  border:1.5px solid rgba(255,180,0,.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 10px 22px rgba(0,0,0,.85);
+}
+
+.boost.active{
+  border-color:#ffb300;
+  box-shadow:
+    0 0 0 1px rgba(255,180,0,.6),
+    0 0 20px rgba(255,170,0,.45);
+}
+
+.boost small{
+  color:#c7b38a;
+}
+
+/* ===== AIRDROP / TEXT ===== */
+h2{
+  letter-spacing:.5px;
+  color:#ffd36a;
+}
+
+p{
+  color:#c7b38a;
+}
+
+/* ===== BUTTON PRESS ===== */
+.menu button:active,
+.boost:active{
+  transform:scale(.96);
+  box-shadow:0 0 26px rgba(255,180,0,.7);
+}
+
+/* ===== LOADER ===== */
+#loader{
+  background:
+    radial-gradient(circle at center,#14100a 0%,#000 70%);
+}
+
+#loader .logo{
+  color:#ffd36a;
+  letter-spacing:1.2px;
+}
+
+#loader .percent{
+  color:#ffb300;
+}
